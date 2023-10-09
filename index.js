@@ -3,9 +3,9 @@ const {createServer} = require('http');
 const {Server} = require('socket.io');
 const cors = require('cors');
 
+const app = express();
 const isDev = app.settings.env === 'development';
 const url = isDev ? 'http://localhost:3000' : 'https://paper-canvas.vercel.app'
-const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer,{
     cors : url
